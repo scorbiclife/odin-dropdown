@@ -14,3 +14,7 @@ li {
   justify-content: center;
   align-items: center;
 }
+
+.dropdown-content {
+  background-color: white;
+}

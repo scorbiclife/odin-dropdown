@@ -1,0 +1,15 @@
+.dropdown {
+  position: relative;
+}
+
+.dropdown .dropdown-content {
+  display: none;
+}
+
+.dropdown[data-dropdown-open] .dropdown-content {
+  display: unset;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+}

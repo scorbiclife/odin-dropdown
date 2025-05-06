@@ -1,4 +1,5 @@
 import "./index.css";
+import { toggleDropdown } from "./dropdown/dropdown.js";
 
 function $(tagName, attributes = {}) {
   return function (...children) {
@@ -11,8 +12,17 @@ function $(tagName, attributes = {}) {
   };
 }
 
-function component() {
-  return $("div")("Hello, Webpack!");
+function myDropdownComponent() {
+  const dropdown = $("div", { class: "dropdown" })(
+    $("button", { class: "dropdown-toggle" })("Click me"),
+    $("div", { class: "dropdown-content" })("This is a dropdown"),
+  );
+  dropdown.addEventListener("click", toggleDropdown);
+  return dropdown;
 }
 
-document.getElementById("content")?.appendChild(component());
+function mainComponent() {
+  return $("div")(myDropdownComponent(), myDropdownComponent());
+}
+
+document.getElementById("content")?.appendChild(mainComponent());
